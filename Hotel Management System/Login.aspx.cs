@@ -13,17 +13,16 @@ namespace Hotel_Management_System
         {
 
         }
-
-        protected void password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         protected void login_Click(object sender, EventArgs e)
         {
             if (username.Text== "test" && password.Text== "test")
             {
+
+                DisplayUserName.displayName = username.Text;
                 Response.Redirect("~/Dashboard.aspx");
+                
             }
             else
             {
@@ -31,6 +30,11 @@ namespace Hotel_Management_System
                 username.Text = "";
                 password.Text = "";
             }
+        }
+
+        protected void password_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

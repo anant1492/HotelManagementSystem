@@ -20,6 +20,11 @@
         <asp:Button ID="btnEmployeeDetails" runat="server" Height="100px" OnClick="btnEmployeeDetails_Click" Text="Employee Details" Width="222px" />
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" />
         <br />
+        <br />
+        <asp:Panel ID="Panel1" runat="server" Height="412px">
+            Welcome
+            <asp:Label ID="userLabel" runat="server"></asp:Label>
+            &nbsp;to Hotel Management System</asp:Panel>
     </form>
 </body>
 </html>
