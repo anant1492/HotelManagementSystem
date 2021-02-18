@@ -45,5 +45,10 @@ namespace Hotel_Management_System
         {
             Response.Redirect("~/Employee.aspx");
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

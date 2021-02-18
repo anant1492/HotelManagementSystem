@@ -18,6 +18,7 @@
         <asp:Button ID="btnCustomerDetails" runat="server" Height="98px" OnClick="btnCustomerDetails_Click" Text="Customer Details" Width="223px" />
         <asp:Button ID="btnCheckout" runat="server" Height="100px" OnClick="btnCheckout_Click" Text="Checkout" Width="219px" />
         <asp:Button ID="btnEmployeeDetails" runat="server" Height="100px" OnClick="btnEmployeeDetails_Click" Text="Employee Details" Width="222px" />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" />
         <br />
     </form>
 </body>

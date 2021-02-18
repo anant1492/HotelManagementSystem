@@ -16,7 +16,7 @@ namespace Hotel_Management_System
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Login.aspx");
         }
 
         protected void btnAddRoom_Click(object sender, EventArgs e)

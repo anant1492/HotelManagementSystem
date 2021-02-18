@@ -13,6 +13,7 @@
         <asp:Button ID="btnCustomerDetails" runat="server" Height="98px" Text="Customer Details" Width="223px" OnClick="btnCustomerDetails_Click" />
         <asp:Button ID="btnCheckout" runat="server" Height="100px" Text="Checkout" Width="219px" OnClick="btnCheckout_Click" />
         <asp:Button ID="btnEmployeeDetails" runat="server" Height="100px" Text="Employee Details" Width="222px" OnClick="btnEmployeeDetails_Click" />
+        <asp:Button ID="Button2" runat="server" OnClick="Button1_Click" Text="Logout" />
         <br />
         <asp:Panel ID="Panel1" runat="server" BackColor="#669999" Height="647px">
             &nbsp;<br />
