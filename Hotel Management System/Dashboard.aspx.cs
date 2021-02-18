@@ -11,8 +11,11 @@ namespace Hotel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            userLabel.Text = DisplayUserName.displayName;
+            userLabel.Visible = true;
+                
         }
+
 
         protected void btnAddRoom_Click(object sender, EventArgs e)
         {
