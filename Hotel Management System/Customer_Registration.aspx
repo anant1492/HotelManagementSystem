@@ -18,72 +18,88 @@
         <asp:Button ID="btnCustomerDetails" runat="server" Height="98px" Text="Customer Details" Width="223px" OnClick="btnCustomerDetails_Click1" />
         <asp:Button ID="btnCheckout" runat="server" Height="100px" Text="Checkout" Width="206px" OnClick="btnCheckout_Click1" />
         <asp:Button ID="btnEmployeeDetails" runat="server" Height="100px" Text="Employee Details" Width="218px" OnClick="btnEmployeeDetails_Click" />
-        <asp:Button ID="Button2" runat="server" OnClick="Button1_Click" Text="Logout" />
+        <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Logout" />
         <br />
         <br />
-        <asp:Panel ID="Panel1" runat="server" BackColor="#669999" Height="603px" style="margin-top: 0px">
+        <asp:Panel ID="Panel1" runat="server" BackColor="#669999" Height="756px" style="margin-top: 0px">
             &nbsp;&nbsp;
             <br />
             &nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label1" runat="server" BackColor="White" Text="Add New Customer"></asp:Label>
             <br />
             <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="custUser" runat="server" Text="userID"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="custUserId" runat="server" Width="217px"></asp:TextBox>
+            &nbsp;* Must be Unique<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="checkCustUserId" runat="server" OnClick="checkCustUserId_Click" Text="Check" />
+&nbsp;
+            <asp:Label ID="displayUserIdCheck" runat="server"></asp:Label>
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label2" runat="server" Text="Name"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox1" runat="server" Width="217px"></asp:TextBox>
+            <asp:TextBox ID="custName" runat="server" Width="217px"></asp:TextBox>
             <br />
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label8" runat="server" Text="Password"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="custPass" runat="server" TextMode="Password" Width="217px"></asp:TextBox>
+            &nbsp;<br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label3" runat="server" Text="Age"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox2" runat="server" Width="214px"></asp:TextBox>
+            <asp:TextBox ID="custAge" runat="server" Width="214px"></asp:TextBox>
             <br />
             &nbsp;&nbsp;&nbsp;
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label4" runat="server" Text="Gender"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:DropDownList ID="DropDownList3" runat="server" Width="223px">
-                <asp:ListItem>Male</asp:ListItem>
-                <asp:ListItem>Female</asp:ListItem>
-                <asp:ListItem>Transgender</asp:ListItem>
+            <asp:DropDownList ID="custGender" runat="server" Width="223px">
+                <asp:ListItem>M</asp:ListItem>
+                <asp:ListItem>F</asp:ListItem>
+                <asp:ListItem>T</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label5" runat="server" Text="Phone Number"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox4" runat="server" Width="217px"></asp:TextBox>
+            <asp:TextBox ID="custPhoneNumber" runat="server" Width="217px"></asp:TextBox>
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label6" runat="server" Text="Address"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox5" runat="server" Width="217px"></asp:TextBox>
+            <asp:TextBox ID="custAddress" runat="server" Width="217px"></asp:TextBox>
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label7" runat="server" Text="Status"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:DropDownList ID="DropDownList2" runat="server" Width="223px">
+            <asp:DropDownList ID="custStatus" runat="server" Width="223px">
                 <asp:ListItem>Single</asp:ListItem>
                 <asp:ListItem>Married</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label8" runat="server" Text="Hosted By"></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:DropDownList ID="DropDownList1" runat="server">
-            </asp:DropDownList>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button1" runat="server" Height="78px" Text="Add Guest" Width="329px" />
+            <asp:Button ID="btnAddGuest" runat="server" Height="78px" Text="Register Customer" Width="329px" OnClick="btnAddGuest_Click1" />
+            <asp:Label ID="registerLabel" runat="server" Visible="False"></asp:Label>
+            &nbsp;<br /> &nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" Visible="False" Width="325px" />
+            <br />
         </asp:Panel>
     </form>
 </body>

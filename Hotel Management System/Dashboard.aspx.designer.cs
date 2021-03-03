@@ -42,13 +42,13 @@ namespace Hotel_Management_System
         protected global::System.Web.UI.WebControls.Button btnCustomerRegistration;
 
         /// <summary>
-        /// btnCustomerDetails control.
+        /// btnReserve control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCustomerDetails;
+        protected global::System.Web.UI.WebControls.Button btnReserve;
 
         /// <summary>
         /// btnCheckout control.
@@ -87,12 +87,12 @@ namespace Hotel_Management_System
         protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
-        /// userLabel control.
+        /// displayUserLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userLabel;
+        protected global::System.Web.UI.WebControls.Label displayUserLabel;
     }
 }

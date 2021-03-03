@@ -67,9 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Add_Room.aspx" />
     <Content Include="Checkout.aspx" />
-    <Content Include="Customer_Details.aspx" />
+    <Content Include="Register_Room.aspx" />
+    <Content Include="Reservation.aspx" />
     <Content Include="Customer_Registration.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Employee.aspx" />
@@ -79,13 +79,6 @@
     <Content Include="Login.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Add_Room.aspx.cs">
-      <DependentUpon>Add_Room.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Add_Room.aspx.designer.cs">
-      <DependentUpon>Add_Room.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -93,12 +86,19 @@
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer_Details.aspx.cs">
-      <DependentUpon>Customer_Details.aspx</DependentUpon>
+    <Compile Include="Register_Room.aspx.cs">
+      <DependentUpon>Register_Room.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer_Details.aspx.designer.cs">
-      <DependentUpon>Customer_Details.aspx</DependentUpon>
+    <Compile Include="Register_Room.aspx.designer.cs">
+      <DependentUpon>Register_Room.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation.aspx.cs">
+      <DependentUpon>Reservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservation.aspx.designer.cs">
+      <DependentUpon>Reservation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer_Registration.aspx.cs">
       <DependentUpon>Customer_Registration.aspx</DependentUpon>
