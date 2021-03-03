@@ -11,8 +11,16 @@ namespace Hotel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            userLabel.Text = DisplayUserName.displayName;
-            userLabel.Visible = true;
+            displayUserLabel.Text = DisplayUserName.displayName;
+            displayUserLabel.Visible = true;
+
+        if(DisplayUserName.displayUserType.Equals("customer"))
+            {
+                btnAddRoom.Visible = false;
+                btnCheckout.Visible = false;
+                btnCustomerRegistration.Visible = false;
+                btnEmployeeDetails.Visible = false;
+            }
                 
         }
 
@@ -21,7 +29,7 @@ namespace Hotel_Management_System
         {
 
            
-            Response.Redirect("~/Add_Room.aspx");
+            Response.Redirect("~/Register_Room.aspx");
 
         }
 

@@ -30,6 +30,7 @@ namespace Hotel_Management_System
         {
             string user = username.Text;
             string pass = password.Text;
+            DisplayUserName.displayName = user;
 
             if (userTypeList.SelectedValue.Equals("admin"))
             {
