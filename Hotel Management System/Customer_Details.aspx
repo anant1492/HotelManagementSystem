@@ -27,8 +27,14 @@
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:GridView ID="bookingView" runat="server" Height="373px" Width="1117px">
+            <asp:GridView ID="bookingView" runat="server" Height="373px" Width="1117px" AutoGenerateColumns="False" DataKeyNames="username" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:BoundField DataField="username" HeaderText="username" ReadOnly="True" SortExpression="username" />
+                    <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
+                    <asp:BoundField DataField="userType" HeaderText="userType" SortExpression="userType" />
+                </Columns>
             </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HMSConnectionString2 %>" SelectCommand="SELECT * FROM [userTable]"></asp:SqlDataSource>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             <br />
