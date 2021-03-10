@@ -20,6 +20,12 @@ namespace Hotel_Management_System
                 btnCheckout.Visible = false;
                 btnCustomerRegistration.Visible = false;
                 btnEmployeeDetails.Visible = false;
+
+                ReservationView.Visible = false;
+               /* SqlDataSource3.UpdateCommand = "select * from reservation where customerID='" + DisplayUserName.displayName + "' order by reservationID desc;";
+                    SqlDataSource3.Update();
+                ReservationView.DataSourceID = SqlDataSource3.ID;
+                ReservationView.Visible = true;*/
             }
                 
         }
@@ -39,9 +45,9 @@ namespace Hotel_Management_System
 
         }
 
-        protected void btnCustomerDetails_Click(object sender, EventArgs e)
+        protected void btnReserve_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Customer_Details.aspx");
+            Response.Redirect("~/Reservation.aspx");
 
         }
 

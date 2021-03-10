@@ -38,7 +38,7 @@ namespace Hotel_Management_System
 
         protected void btnAddRoom_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Add_Room.aspx");
+            Response.Redirect("~/Register_Room.aspx");
         }
 
         protected void btnCustomerRegistration_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace Hotel_Management_System
 
         protected void btnCustomerDetails_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("~/Customer_Details.aspx");
+            Response.Redirect("~/Reservation.aspx");
         }
 
         protected void btnCheckout_Click1(object sender, EventArgs e)

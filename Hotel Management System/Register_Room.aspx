@@ -8,9 +8,9 @@
 </head>
 <body style="height: 758px">
     <form id="form1" runat="server">
-        <asp:Button ID="btnAddRoom" runat="server" Height="97px" Text="Add Room" Width="245px" OnClick="btnAddRoom_Click" />
+        <asp:Button ID="btnAddRoom" runat="server" Height="97px" Text="Register Room" Width="245px" OnClick="btnAddRoom_Click" />
         <asp:Button ID="btnCustomerRegistration" runat="server" Height="97px" OnClick="btnCustomerRegistration_Click" style="margin-top: 0px" Text="Customer Registration" Width="253px" />
-        <asp:Button ID="btnCustomerDetails" runat="server" Height="98px" Text="Customer Details" Width="223px" OnClick="btnCustomerDetails_Click" />
+        <asp:Button ID="btnCustomerDetails" runat="server" Height="98px" Text="Reservation" Width="223px" OnClick="btnCustomerDetails_Click" />
         <asp:Button ID="btnCheckout" runat="server" Height="100px" Text="Checkout" Width="219px" OnClick="btnCheckout_Click" />
         <asp:Button ID="btnEmployeeDetails" runat="server" Height="100px" Text="Employee Details" Width="222px" OnClick="btnEmployeeDetails_Click" />
         <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Logout" />
