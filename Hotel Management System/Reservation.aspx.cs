@@ -18,6 +18,7 @@ namespace Hotel_Management_System
         int roomNumber;
         string checkInDate = "";
         string checkOutDate = "";
+       
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,6 +36,17 @@ namespace Hotel_Management_System
                 btnCheckout.Visible = false;
                 btnCustomerRegistration.Visible = false;
                 btnEmployeeDetails.Visible = false;
+                btnVolumeReservation.Visible = false;
+            }
+            if (DisplayUserName.displayUserType.Equals("employee"))
+            {
+                chooseCustomerLabel.Visible = true;
+                selectCustomerList.Visible = true;
+                customerID = selectCustomerList.SelectedValue;
+
+                btnAddRoom.Visible = false;
+                btnEmployeeDetails.Visible = false;
+                btnVolumeReservation.Visible = false;
             }
 
             cnn.ConnectionString = ConfigurationManager.ConnectionStrings["HMSConnectionString"].ConnectionString;
@@ -59,26 +71,25 @@ namespace Hotel_Management_System
 
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            AvailableRoomView.Visible = true;
-        }
-
-        protected void btnReservation_Click1(object sender, EventArgs e)
+        protected void btnReserve_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Reservation.aspx");
         }
 
-        protected void btnEmployeeDetails_Click1(object sender, EventArgs e)
+        protected void btnEmployeeDetails_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Employee.aspx");
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnVolumeReservation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/VolumeBooking.aspx");
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Login.aspx");
         }
-
 
 
         protected void btnReservation_Click(object sender, EventArgs e)
@@ -162,6 +173,6 @@ namespace Hotel_Management_System
 
         }
 
-       
+        
     }
 }

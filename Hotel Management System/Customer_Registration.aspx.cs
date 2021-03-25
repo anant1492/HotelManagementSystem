@@ -23,11 +23,18 @@ namespace Hotel_Management_System
             if(DisplayUserName.displayUserType.Equals("customer"))
             {
                 btnAddRoom.Visible = false;
-                btnCustomerDetails.Visible = false;
                 btnCheckout.Visible = false;
                 btnCustomerRegistration.Visible = false;
                 btnEmployeeDetails.Visible = false;
-                btnLogout.Visible = false;                
+                btnVolumeReservation.Visible = false;
+                btnReserve.Visible = false;
+                btnLogout.Visible = true;                
+            }
+            if (DisplayUserName.displayUserType.Equals("employee"))
+            {
+                btnAddRoom.Visible = false;
+                btnEmployeeDetails.Visible = false;
+                btnVolumeReservation.Visible = false;
             }
 
             btnLogin.Visible = false;
@@ -47,20 +54,25 @@ namespace Hotel_Management_System
 
         }
 
-        protected void btnEmployeeDetails_Click(object sender, EventArgs e)
+        protected void btnCheckout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Employee.aspx");
+            Response.Redirect("~/Checkout.aspx");
 
         }
 
-        protected void btnCustomerDetails_Click1(object sender, EventArgs e)
+        protected void btnReserve_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Reservation.aspx");
         }
 
-        protected void btnCheckout_Click1(object sender, EventArgs e)
+        protected void btnEmployeeDetails_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Checkout.aspx");
+            Response.Redirect("~/Employee.aspx");
+        }
+
+        protected void btnVolumeReservation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/VolumeBooking.aspx");
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -102,40 +114,48 @@ namespace Hotel_Management_System
             cmd.Connection = cnn;
             try
             {
-                cmd.CommandText = string.Format("insert into Customer" + "(userId,customerName,customerAge,customerGender,customerPhone," +
-                                                                           "customerAddress,customerStatus)" +
-                                                                           "values(@userId," +
-                                                                           "@customerName," +
-                                                                           "@customerAge," +
-                                                                           "@customerGender," +
-                                                                           "@customerPhone," +
-                                                                           "@customerAddress," +
-                                                                           "@customerStatus)");
-                cmd.Parameters.AddWithValue("@userId", customerUserId);
-                cmd.Parameters.AddWithValue("@customerName", customerName);
-                cmd.Parameters.AddWithValue("@customerAge", customerAge);
-                cmd.Parameters.AddWithValue("@customerGender", customerGender);
-                cmd.Parameters.AddWithValue("@customerPhone", customerPhone);
-                cmd.Parameters.AddWithValue("@customerAddress", customerAddress);
-                cmd.Parameters.AddWithValue("@customerStatus", customerStatus);
-
+                cmd.CommandText = string.Format("insert into userTable" + "(username,password,userType)" +
+                                                                          "values(@username," +
+                                                                          "@password," +
+                                                                          "@userType)");
+                cmd.Parameters.AddWithValue("@username", customerUserId);
+                cmd.Parameters.AddWithValue("@password", customerPass);
+                cmd.Parameters.AddWithValue("@userType", "customer");
 
                 cmd.ExecuteNonQuery();
+                
                 {
                     try
                     {
-                        cmd.CommandText = string.Format("insert into userTable" + "(username,password,userType)" +
-                                                                           "values(@username," +
-                                                                           "@password," +
-                                                                           "@userType)");
-                        cmd.Parameters.AddWithValue("@username", customerUserId);
-                        cmd.Parameters.AddWithValue("@password", customerPass);
-                        cmd.Parameters.AddWithValue("@userType", "customer");
+                        cmd.CommandText = string.Format("insert into Customer" + "(userId,customerName,customerAge,customerGender,customerPhone," +
+                                                                            "customerAddress,customerStatus)" +
+                                                                            "values(@userId," +
+                                                                            "@customerName," +
+                                                                            "@customerAge," +
+                                                                            "@customerGender," +
+                                                                            "@customerPhone," +
+                                                                            "@customerAddress," +
+                                                                            "@customerStatus)");
+                        cmd.Parameters.AddWithValue("@userId", customerUserId);
+                        cmd.Parameters.AddWithValue("@customerName", customerName);
+                        cmd.Parameters.AddWithValue("@customerAge", customerAge);
+                        cmd.Parameters.AddWithValue("@customerGender", customerGender);
+                        cmd.Parameters.AddWithValue("@customerPhone", customerPhone);
+                        cmd.Parameters.AddWithValue("@customerAddress", customerAddress);
+                        cmd.Parameters.AddWithValue("@customerStatus", customerStatus);
+
 
                         cmd.ExecuteNonQuery();
-                        registerLabel.Text = "Customer added!! Click on login button to Redirect to login Page.";
-                        registerLabel.Visible = true;
-                        btnLogin.Visible = true;
+                        if (DisplayUserName.displayUserType.Equals("admin")|| DisplayUserName.displayUserType.Equals("employee"))
+                        {
+                            Response.Redirect("~/Reservation.aspx");
+                        }                        
+                        else
+                        {
+                         registerLabel.Text = "Customer added!! Click on login button to Redirect to login Page.";
+                         registerLabel.Visible = true;
+                         btnLogin.Visible = true;
+                        }
 
                     }
                     catch (SqlException ex)
@@ -177,7 +197,7 @@ namespace Hotel_Management_System
 
             cnn.Open();
             cmd.Connection = cnn;
-            cmd.CommandText = string.Format("select * from Customer where userId='{0}'", customerUserId);
+            cmd.CommandText = string.Format("select * from userTable where username='{0}'", customerUserId);
             SqlDataReader sdr = cmd.ExecuteReader();
             if (sdr.Read())
             {
@@ -199,5 +219,9 @@ namespace Hotel_Management_System
         {
             Response.Redirect("~/Login.aspx");
         }
+
+       
+
+        
     }
 }

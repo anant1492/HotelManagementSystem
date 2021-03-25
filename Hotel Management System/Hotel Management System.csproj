@@ -75,6 +75,7 @@
     <Content Include="Employee.aspx" />
     <Content Include="images\login image.jpg" />
     <Content Include="images\login.gif" />
+    <Content Include="VolumeBooking.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
   </ItemGroup>
@@ -129,6 +130,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VolumeBooking.aspx.cs">
+      <DependentUpon>VolumeBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VolumeBooking.aspx.designer.cs">
+      <DependentUpon>VolumeBooking.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
