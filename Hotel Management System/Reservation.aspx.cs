@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using System.Net.Mail;
+using System.IO;
 
 namespace Hotel_Management_System
 {
@@ -18,7 +20,7 @@ namespace Hotel_Management_System
         int roomNumber;
         string checkInDate = "";
         string checkOutDate = "";
-       
+        int emailReservationId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -132,7 +134,9 @@ namespace Hotel_Management_System
                     if (result1 != 0)
                     {
                         Response.Write("success");
-                        
+                        EmailAddressLbl.Visible = true;
+                        EmailAddress.Visible = true;
+                        sendEmail.Visible = true;
                     }
                     
 
@@ -142,17 +146,19 @@ namespace Hotel_Management_System
                 AvailableRoomView.Visible = true;
                 selectRoomList.DataSourceID = SqlDataSource1.ID; ;
                 selectRoomList.Visible = true;
-                SqlDataSource2.Update();
-                selectCustomerList.Visible = true;
+                //SqlDataSource2.Update();
+                
 
-                if (DisplayUserName.displayUserType.Equals("admin"))
+                
+
+                /*if (DisplayUserName.displayUserType.Equals("admin"))
                 {
                 Response.Redirect("~/Dashboard.aspx");
-                }
-                if(DisplayUserName.displayUserType.Equals("customer"))
+                }*/
+                /*if(DisplayUserName.displayUserType.Equals("customer"))
                 {
                     Response.Write("success, you will receive email shortly");
-                }
+                }*/
 
             }
             catch (SqlException ex)
@@ -173,6 +179,47 @@ namespace Hotel_Management_System
 
         }
 
-        
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+        }
+        protected void sendEmail_Click(object sender, EventArgs e)
+        {
+            string emailTo = EmailAddress.Text;
+            
+            cnn.Open();
+            cmd.Connection = cnn;
+            cmd.CommandText = string.Format("Select  TOP 1(reservationId) from Reservation order by reservationId desc;");
+            SqlDataReader sdr = cmd.ExecuteReader();
+            while (sdr.Read())
+            {
+                emailReservationId = sdr.GetInt32(0);
+                Response.Write("bboked id is:" + emailReservationId);
+            }            
+             try 
+                {                      
+                        
+                        MailMessage message = new MailMessage("ananthms619@gmail.com", emailTo);
+                        message.Subject = "Your Reservation Details";
+                        message.Body = "Reservation Details: <Br />" + emailReservationId;
+                        message.IsBodyHtml = true;
+
+                        SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                        client.EnableSsl = true;
+                        client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        client.UseDefaultCredentials = false;
+                        client.Credentials = new System.Net.NetworkCredential("ananthms619@gmail.com", "Anant@1234");
+                Response.Write("bboked id is:" + emailReservationId);
+                client.Send(message);
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Email Sent!')", true);
+                 }                
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Email not sent error occurred')", true);
+                }
+            cnn.Close();
+           
+
+        }
     }
 }

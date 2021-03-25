@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
+
 namespace Hotel_Management_System
 {
     public partial class WebForm1 : System.Web.UI.Page
@@ -18,7 +19,7 @@ namespace Hotel_Management_System
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            
             cnn.ConnectionString = ConfigurationManager.ConnectionStrings["HMSConnectionString"].ConnectionString;
             cnn.Open();
             cnn.Close();
@@ -28,6 +29,8 @@ namespace Hotel_Management_System
 
         protected void login_Click(object sender, EventArgs e)
         {
+            
+
             string user = username.Text;
             string pass = password.Text;
             DisplayUserName.displayName = user;
