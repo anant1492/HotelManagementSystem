@@ -14,34 +14,38 @@ namespace Hotel_Management_System
             displayUserLabel.Text = DisplayUserName.displayName;
             displayUserLabel.Visible = true;
 
-        if(DisplayUserName.displayUserType.Equals("customer"))
+            if (DisplayUserName.displayUserType.Equals("customer"))
             {
                 btnAddRoom.Visible = false;
                 btnCheckout.Visible = false;
                 btnCustomerRegistration.Visible = false;
                 btnEmployeeDetails.Visible = false;
+                btnVolumeReservation.Visible = false;
+
+                ReservationView.Visible = false;
+                /* SqlDataSource3.UpdateCommand = "select * from reservation where customerID='" + DisplayUserName.displayName + "' order by reservationID desc;";
+                     SqlDataSource3.Update();
+                 ReservationView.DataSourceID = SqlDataSource3.ID;
+                 ReservationView.Visible = true;*/
             }
-                
+            if (DisplayUserName.displayUserType.Equals("employee"))
+            {
+                btnAddRoom.Visible = false;
+                btnEmployeeDetails.Visible = false;
+                btnVolumeReservation.Visible = false;
+            }
+
         }
 
 
         protected void btnAddRoom_Click(object sender, EventArgs e)
         {
-
-           
             Response.Redirect("~/Register_Room.aspx");
-
         }
 
         protected void btnCustomerRegistration_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Customer_Resgistration.aspx");
-
-        }
-
-        protected void btnCustomerDetails_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Customer_Details.aspx");
+            Response.Redirect("~/Customer_Registration.aspx");
 
         }
 
@@ -51,19 +55,22 @@ namespace Hotel_Management_System
 
         }
 
+        protected void btnReserve_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reservation.aspx");
+        }
+
         protected void btnEmployeeDetails_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Employee.aspx");
-
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void btnVolumeReservation_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Add_Room.aspx");
-
+            Response.Redirect("~/VolumeBooking.aspx");
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnLogout_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Login.aspx");
         }

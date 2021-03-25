@@ -28,6 +28,13 @@ namespace Hotel_Management_System
                 btnCheckout.Visible = false;
                 btnCustomerRegistration.Visible = false;
                 btnEmployeeDetails.Visible = false;
+                btnVolumeReservation.Visible = false;
+            }
+            if (DisplayUserName.displayUserType.Equals("employee"))
+            {
+                btnAddRoom.Visible = false;
+                btnEmployeeDetails.Visible = false;
+                btnVolumeReservation.Visible = false;
             }
 
             cnn.ConnectionString = ConfigurationManager.ConnectionStrings["HMSConnectionString"].ConnectionString;
@@ -38,27 +45,34 @@ namespace Hotel_Management_System
 
         protected void btnAddRoom_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Add-Room.aspx");
+            Response.Redirect("~/Register_Room.aspx");
         }
 
         protected void btnCustomerRegistration_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Customer_Registration.aspx");
-        }
 
-        protected void btnCustomerDetails_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Customer_Details.aspx");
         }
 
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Checkout.aspx");
+
+        }
+
+        protected void btnReserve_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reservation.aspx");
         }
 
         protected void btnEmployeeDetails_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Employee.aspx");
+        }
+
+        protected void btnVolumeReservation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/VolumeBooking.aspx");
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -153,6 +167,16 @@ namespace Hotel_Management_System
 
             }
             cnn.Close();
+        }
+
+        protected void VolumeReservation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/VolumeBooking.aspx");
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -11,12 +11,25 @@ namespace Hotel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (DisplayUserName.displayUserType.Equals("customer"))
+            {
+                btnAddRoom.Visible = false;
+                btnCheckout.Visible = false;
+                btnCustomerRegistration.Visible = false;
+                btnEmployeeDetails.Visible = false;
+                btnVolumeReservation.Visible = false;
+            }
+            if (DisplayUserName.displayUserType.Equals("employee"))
+            {
+                btnAddRoom.Visible = false;
+                btnEmployeeDetails.Visible = false;
+                btnVolumeReservation.Visible = false;
+            }
         }
 
         protected void btnAddRoom_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Add_Room.aspx");
+            Response.Redirect("~/Register_Room.aspx");
         }
 
         protected void btnCustomerRegistration_Click(object sender, EventArgs e)
@@ -25,22 +38,28 @@ namespace Hotel_Management_System
 
         }
 
-        protected void btnCheckout_Click1(object sender, EventArgs e)
+        protected void btnCheckout_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Checkout.aspx");
+
         }
 
-        protected void btnCustomerDetails_Click1(object sender, EventArgs e)
+        protected void btnReserve_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Customer_Details.aspx");
+            Response.Redirect("~/Reservation.aspx");
         }
 
-        protected void btnEmployeeDetails_Click1(object sender, EventArgs e)
+        protected void btnEmployeeDetails_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Employee.aspx");
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnVolumeReservation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/VolumeBooking.aspx");
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Login.aspx");
         }
